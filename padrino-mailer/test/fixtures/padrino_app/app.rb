@@ -8,6 +8,12 @@ class PadrinoApp < Padrino::Application
 
   set :delivery_method, :test
 
+  helpers do
+    def echo_helper(input)
+      input
+    end
+  end
+
   mailer :sample do
     email :birthday do |name, age|
       subject "Happy Birthday!"

@@ -4,9 +4,8 @@ module Mail # @private
     include Padrino::Rendering if defined?(Padrino::Rendering)
     attr_reader :template_cache
 
-    def initialize_with_app(context, *args, &block)
+    def initialize_with_app(*args, &block)
       @template_cache = Tilt::Cache.new
-      @context = context
       # Check if we have an app passed into initialize
       if args[0].respond_to?(:views) && args[0].respond_to?(:reload_templates?)
         app                       = args.shift
